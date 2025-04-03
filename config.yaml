@@ -1,0 +1,25 @@
+# Configuration for the Code Review Agent System
+
+# Git server settings
+git:
+  # API token for Git server access
+  api_token: ""  # Your Git API token goes here
+  # Base URL for Git API calls - leave empty to use github.com, or set for custom server
+  api_base_url: ""  # e.g., "http://10.211.55.13:3000/api/v1" for a custom Git server
+  # Organization or project name
+  org: "corporate"  # Replace with your organization name
+
+# General settings
+general:
+  polling_interval: 300  # 5 minutes
+  debug_mode: false
+  local_mode: false  # Set to true to use local test repositories instead of GitHub
+
+# Local mode settings
+local:
+  repos_path: "test_repos"  # Path relative to project root
+
+# Model settings
+model:
+  name: "gpt-4o-mini"  # Model to use: gpt-4o-mini, gpt-3.5-turbo, etc.
+  api_token: ""  # Your OpenAI API token goes here

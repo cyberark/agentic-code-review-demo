@@ -1,0 +1,7 @@
+{
+  "style_guidelines": "Use 4 spaces for indentation. Maximum line length is 100 characters. Follow PEP 8 for Python code. Use camelCase for JavaScript. Use meaningful variable and function names that clearly indicate their purpose. Prefer declarative over imperative code when possible.",
+  
+  "security_requirements": "No hardcoded credentials or API keys. Use environment variables or secure vaults for secrets. Validate and sanitize all user inputs. Implement proper authentication and authorization. Use prepared statements for database queries to prevent SQL injection. Set appropriate CORS policies. Use HTTPS for all communications. Implement proper error handling without leaking sensitive information.",
+  
+  "coding_standards": "Write unit tests for all functions with at least 80% code coverage. Use type hints in Python. Document public APIs with docstrings. Use ESLint for JavaScript projects. Avoid code duplication. Use version control with meaningful commit messages. Follow the principle of least privilege. Use dependency injection for better testability. Implement proper error handling and logging. Keep functions small and focused on a single responsibility."
+}
