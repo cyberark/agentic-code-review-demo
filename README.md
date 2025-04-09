@@ -3,7 +3,7 @@
 > ⚠️ **DISCLAIMER: THIS IS A VULNERABLE DEMO SYSTEM FOR EDUCATIONAL PURPOSES ONLY** ⚠️
 
 This system is intentionally designed with security vulnerabilities to demonstrate security issues in agentic systems.
-It accompanies our threat modeling blog post: [LINK TO BE ADDED]
+It accompanies our threat modeling [blogpost](https://www.cyberark.com/resources/threat-research-blog/agents-under-attack-threat-modeling-agentic-ai).
 
 **DO NOT USE THIS IN PRODUCTION OR WITH SENSITIVE REPOSITORIES**
 
@@ -36,14 +36,26 @@ The system proactively scans repositories in an organization and uses LLM to sel
 
 2. Edit the configuration in `config.yaml`:
    ```yaml
+   # Git server settings
    git:
      # API token for Git server access
      api_token: "your-git-token-here"
-     # API base URL - leave empty for GitHub.com, or set for custom server
+     # Base URL for Git API calls - leave empty to use github.com, or set for custom server
      api_base_url: ""  # e.g., "http://10.211.55.13:3000/api/v1" for a custom Git server
      # Organization or project name
      org: "your-git-org"  # Replace with your organization/project name
    
+   # General settings
+   general:
+     polling_interval: 300  # 5 minutes
+     debug_mode: false
+     local_mode: false  # Set to true to use local test repositories instead of GitHub
+   
+   # Local mode settings
+   local:
+     repos_path: "test_repos"  # Path relative to project root
+   
+   # Model settings
    model:
      name: "gpt-4o-mini"  # Model to use: gpt-4o-mini, gpt-3.5-turbo, etc.
      api_token: "your-openai-api-token-here"
@@ -80,9 +92,10 @@ The system includes a detailed debug mode that displays:
 - Decision-making process details
 - Repository and issue selection rationale
 
-Enable debug mode by setting the environment variable:
-```
-export DEBUG_MODE=1
+Enable debug mode by setting `debug_mode: true` in the `config.yaml` file:
+```yaml
+general:
+  debug_mode: true
 ```
 
 This is useful for:
